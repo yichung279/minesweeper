@@ -1,1 +1,32 @@
-Hello World
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minesweeper</title>
+  </head>
+  <body>
+    <div id="clock" >
+      <p class="time">{{minutes_ten}}{{minutes_one}}:{{seconds_ten}}{{seconds_one}}</p>
+    </div>
+    <div id="game" >
+      <div id="row" v-for="line in map" >
+        <button id='dot' v-for="dot in line" @click='detect({dot})'>
+          {{dot.show}}
+        </button>
+      </div>
+      <p id='trig'>{{trig}}</p>
+    </div>
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="../semantic/dist/semantic.js"></script>
+    <link rel="stylesheet" type="text/css" href="menu.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="index.js"></script>
+    <script>if (window.module) module = window.module;</script>
+  </body>
+</html>

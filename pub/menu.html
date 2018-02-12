@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minesweeper</title>
+  </head>
+ <body>
+   <div id="menu">   
+      <h1><i class="bomb icon"></i>
+      MINESWEEPER</h1>
+      <br>
+      <div  v-for = 'item in difficulty' >  
+        <button class='ui vertical animated button'  :id='item' @click='setlevel({item})'
+          onclick = "location=`index.html`" @mouseenter=" mouseEnter({item})" @mouseleave="mouseLeave({item})">
+          <div class="hidden content"><i class="right arrow icon"></i></div>
+          <div class="visible content">{{item}} </div> 
+        </button>
+        <p><br></p>
+      </div>
+    </div>
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="../semantic/dist/semantic.js"></script>
+    <link rel="stylesheet" type="text/css" href="menu.css">
+    <script src="menu.js"></script>
+    <script>if (window.module) module = window.module;</script>
+  </body>
+</html>

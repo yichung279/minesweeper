@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "\"\"",
   "main": "index.js",
-  "scripts":{
-    "start":"electron ."
+  "scripts": {
+    "start": "electron ."
   },
   "license": "MIT",
   "dependencies": {
-    "electron-prebuilt": "^1.4.13"
-  }
+    "electron-prebuilt": "^1.4.13",
+    "semantic": "^0.0.1",
+    "semantic-ui": "^2.2.14",
+    "ui": "^0.2.4"
+  },
+  "repository": "git@github.com:yichung279/minesweeper.git",
+  "author": "yichung"
 }

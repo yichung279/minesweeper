@@ -1,0 +1,15 @@
+#game {
+  position: relative;
+  top: 10vh;
+}
+#row {  
+  height: 25px;
+}
+#dot {  
+  display: inline;
+  height: 25px;
+  width: 25px;
+}
+#trig{
+  display: none;
+}
