@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Minesweeper</title>
+    <title>Game Over!</title>
   </head>
   <body>
-  <p>Win!</p>
+    <div style='position:relative;top:15px;' id='board'>
+      <p style='text-align:center;' v-if='win'>WINNER WINNER,CHICKEN DINNER!</p>
+      <p style='text-align:center;' v-if='lose'>Next time will be better!</p>
+      <p style = 'text-align:center;' v-if='win' >{{time}}</p>
+      <button :style='buttonStyle' class='ui button' @click='playAgain()' >Again</button>
+      <button :style='buttonStyle' class='ui button' @click='quitGame()' >Quit</button>
+    </div>
 
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.css">
@@ -14,6 +20,7 @@
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous"></script>
     <script src="../semantic/dist/semantic.js"></script>
+    <script src="win.js"></script>
     <script>if (window.module) module = window.module;</script>
   </body>
 </html>

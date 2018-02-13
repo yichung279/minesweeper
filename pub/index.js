@@ -16,8 +16,8 @@ var clock = new Vue({
     var that = this
     setInterval(()=>{
       if (this.keepGoing){that.distance += 1}
-      that.seconds_ten = Math.floor(that.distance / 10) % 6
       that.seconds_one = that.distance % 10
+      that.seconds_ten = Math.floor(that.distance / 10) % 6
       that.minutes_one = Math.floor(that.distance / 60) % 10
       that.minutes_ten = Math.floor(that.distance / 600) 
     } , 1000)
@@ -181,13 +181,16 @@ var game = new Vue({
           }
         }
       }
-      ipcRenderer.send('over', 'win')
+      ipcRenderer.send('over')
+      storage.win = true
       clock.keepGoing = false
+      storage.finishTime = clock.distance
       return false
     },
 
     gameover: function(){
-      ipcRenderer.send('over', 'lose')
+      ipcRenderer.send('over')
+      storage.win = false
       clock.keepGoing = false
       let that = this
       for(let i =  0; i < that.map.length; i++){
