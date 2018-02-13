@@ -1,5 +1,7 @@
-var storage = require('electron').remote.getGlobal('sharedObject') 
-var win = require('electron').remote.getCurrentWindow()
+const {ipcRenderer} = require('electron')
+const storage = require('electron').remote.getGlobal('sharedObject') 
+const win = require('electron').remote.getCurrentWindow()
+
 var clock = new Vue({
   el: '#clock',
   data: {
@@ -179,11 +181,13 @@ var game = new Vue({
           }
         }
       }
+      ipcRenderer.send('over', 'win')
       clock.keepGoing = false
       return false
     },
 
     gameover: function(){
+      ipcRenderer.send('over', 'lose')
       clock.keepGoing = false
       let that = this
       for(let i =  0; i < that.map.length; i++){
