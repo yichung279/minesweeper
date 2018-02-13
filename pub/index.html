@@ -4,18 +4,21 @@
     <title>Minesweeper</title>
   </head>
   <body>
-    <div id="clock" >
-      <p class="time">{{minutes_ten}}{{minutes_one}}:{{seconds_ten}}{{seconds_one}}</p>
+    <div id="clock"  >
+      <p class="time" @click='test()'>{{minutes_ten}}{{minutes_one}}:{{seconds_ten}}{{seconds_one}}</p>
     </div>
-    <div id="game" >
-      <div id="row" v-for="line in map" >
-        <button id='dot' v-for="dot in line" @click='detect({dot})'>
-          {{dot.show}}
-        </button>
-        <i class='bomb icon'></i>
-        <i class='flag outline icon'></i>
+    <div id="game">
+      <div id="num">
+        <p >{{flag_count}}/{{mine_count}}</p>
       </div>
-      <p id='trig'>{{trig}}</p>
+      <div id="row" v-for="line in map" >
+        <button  id='dot' v-for="dot in line" @click.left='detect({dot})' @click.right='mark({dot})'> 
+          {{dot.show}}
+          <i v-if='{dot}.dot.boom' class='bomb icon'></i>
+          <i v-if='{dot}.dot.flaged' class='flag icon'></i>
+        </button>
+      </div>
+      <p id='trig' >{{trig}}</p>
     </div>
 
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>

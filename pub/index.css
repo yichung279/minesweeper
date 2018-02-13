@@ -1,6 +1,16 @@
+#clock > p{
+  position: relative;
+  left: -90px;
+  top: 28px;
+}
+#num{
+  position: relative;
+  left: 85px;
+  top: -20px
+}
 #game {
   position: relative;
-  top: 10vh;
+  top: 20px;
 }
 #row {  
   height: 25px;
@@ -13,3 +23,8 @@
 #trig{
   display: none;
 }
+i{
+  position: relative;
+  left: -4px;
+}
+
