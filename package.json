@@ -4,10 +4,14 @@
   "description": "\"\"",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build_mac": "electron-packager . MineSweeper --platform=darwin --arch=all --version=1.4.13 --asar=true --ignore=node_modules/electron-* ",
+    "build_win32": "electron-packager . MineSweeper --platform=win32 --arch=all --version=1.4.13  --asar=true --ignore=node_modules/electron-* ",
+    "build_linux": "electron-packager . Minesweeper --platform=linux --arch=all --version=1.4.13 --asar=true --ignore=node_modules/electron-* "
   },
   "license": "MIT",
   "dependencies": {
+    "electron-packager": "^11.0.1",
     "electron-prebuilt": "^1.4.13",
     "semantic": "^0.0.1",
     "semantic-ui": "^2.2.14",

@@ -5,6 +5,8 @@ let winMain,winOver
 
 global.sharedObject = {
   level: '',
+  finishTime: 0,
+  win: false,
 }
 
 app.on('ready', function() {
@@ -13,7 +15,7 @@ app.on('ready', function() {
     height: 400,
   })
   winOver = new BrowserWindow({
-    width: 200,
+    width: 450,
     height: 200,
     show: false,
   })
@@ -22,26 +24,27 @@ app.on('ready', function() {
     app.quit()
   });
   
-  ipcMain.on('over', (event,result) => {
-    if(result == 'win'){
-      winOver.loadURL('file://' + __dirname + '/pub/win.html')
-    }else if(result == 'lose'){
-      winOver.loadURL('file://' + __dirname + '/pub/lose.html')
-    }else{
-      console.log('over error at index.js')
-    }
+  ipcMain.on('over', (event) => {
+    winOver.loadURL('file://' + __dirname + '/pub/win.html')
     winOver.show()
+  })
+  ipcMain.on('again', (e) => {
+    winOver.hide()
+    winMain.loadURL('file://' + __dirname + '/pub/index.html')
+  })
+  ipcMain.on('quit', (e) => {
+    winOver.close()
+    winMain.close()
+    app.quit()
   })
 })
 
 
 
-app.on('window-all-closed', app.quit);
-
 app.on('before-quit', () => {
-  winMain.removeAllListeners('close');
-  winOver.removeAllListeners('close');
-  winMain.close();
-  winOver.close();
+  winMain.removeAllListeners('close')
+  winOver.removeAllListeners('close')
+  winMain.close()
+  winOver.close()
 });
 

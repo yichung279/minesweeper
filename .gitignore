@@ -1,2 +1,4 @@
 node_modules/
 semantic/
+MineSweeper*
+.DS_Store
